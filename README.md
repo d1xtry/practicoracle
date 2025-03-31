@@ -1,4 +1,4 @@
-# practicoracle
+# practice oracle
 
 #**DOCKER COMPOSE**
 
