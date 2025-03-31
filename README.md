@@ -1,6 +1,7 @@
 # practicoracle
 
 #**DOCKER COMPOSE**
+
 1.Скачиваем пакет wget, с помощью команды `sudo yum install wget`.Данная утилита wget в Linux предназначена для скачивания файлов из интернета. 
 
 ![image](https://github.com/user-attachments/assets/883cc6a3-9224-47e7-8a13-316eee0bb08e)
