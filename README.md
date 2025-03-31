@@ -1,77 +1,106 @@
 # practicoracle
-1.Скачиваем пакет wget, с помощью команды(<b>sudo yum install wget</b>).Данная утилита wget в Linux предназначена для скачивания файлов из интернета. Она поддерживает протоколы HTTP, HTTPS и FTP, что позволяет загружать как отдельные файлы, так и целые веб-сайты.
 
-![image](https://github.com/user-attachments/assets/af9e4ed8-c9be-445d-9f79-d9fefb10c72b)
+#**DOCKER COMPOSE**
+1.Скачиваем пакет wget, с помощью команды `sudo yum install wget`.Данная утилита wget в Linux предназначена для скачивания файлов из интернета. 
 
+![image](https://github.com/user-attachments/assets/883cc6a3-9224-47e7-8a13-316eee0bb08e)
+![image](https://github.com/user-attachments/assets/3ae11e20-485c-4aa3-bd3b-ebe5407ee6e3)
 
-2.Скачиваем пакет curl, с помощью команды(<b>sudo yum install curl</b>).Данная утилита curl в Linux предназначена для передачи данных с помощью различных сетевых протоколов, таких как HTTP, HTTPS, FTP и других. Она позволяет отправлять запросы к серверам, загружать или отправлять файлы, а также получать информацию о загруженных ресурсах.
+2.Скачиваем пакет curl, с помощью команды `sudo yum install curl`.Данная утилита curl в Linux предназначена для передачи данных с помощью различных сетевых протоколов.
+![image](https://github.com/user-attachments/assets/4a9ef6c4-ce94-413b-a24c-369196de0e93)
 
-![image](https://github.com/user-attachments/assets/909f466e-5b85-4245-ab5d-fefdf3f4669c)
+3. Далее идет установка docker с помощью `sudo wget -P /etc/yum.repos.d/`
 
+![image](https://github.com/user-attachments/assets/06428378-0a56-4033-b585-83f193fc244e)
 
-3.На данном скрине мы загружаем <b>docker-ce.repo</b> и сохраняем его в указанный каталог на скрине.
+4. sudo yum install docker-ce docker-ce-cli containerd.io установка докера.
 
-![image](https://github.com/user-attachments/assets/8a71bb0f-6161-4f0a-9f68-69e70c11265b)
+![image](https://github.com/user-attachments/assets/8f7e9dce-a85e-4618-a2d0-d5284784a99c)
+![image](https://github.com/user-attachments/assets/8299da92-55d6-4871-9468-5559fd8a79d2)
 
+5.Команда `sudo systemctl enable docker --now` включает автозапуск Docker и сразу же запускает его
 
-4. С помощью команды(<b>sudo yum install docker-ce docker-ce-cli containerd.io</b>)будет установлено программное обеспечение Docker и все необходимые его компоненты.
-
-![image](https://github.com/user-attachments/assets/10e4a726-e178-4cd4-ab87-fc44a8c682f9)
-
-
-5.Команда (<b>sudo systemctl enable docker --now</b>)включает автозапуск Docker и сразу же запускает его
-
-![image](https://github.com/user-attachments/assets/2c0f0d31-d47b-47a2-a5c7-2602d98b760e)
+![image](https://github.com/user-attachments/assets/d8c20684-7265-4faf-ada8-e420a95e1829)
 
 6.Эта команда использует утилиту `curl` для выполнения HTTP-запроса к API GitHub, чтобы получить информацию о последнем релизе репозитория Docker Compose, а затем извлекает номер версии этого релиза.
 
 ![image](https://github.com/user-attachments/assets/4086e19c-fc3c-4658-8906-2d5677f322bb)
 
-7.Эта команда использует утилиту `curl` для загрузки последней версии Docker Compose и сохраняет её в системную директорию `/usr/bin/`.
+7. `COMVER=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep 'tag_name' | cut -d\" -f4)` получаем последнюю версию докера.
+   
+![image](https://github.com/user-attachments/assets/8e439f1b-2c74-45bf-a189-7e77355d1623)
 
-![image](https://github.com/user-attachments/assets/15260c10-7b2a-4ae0-9612-b6240c9b4483)
+8. `sudo curl -L "https://github.com/docker/compose/releases/download/$COMVER/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose` загрузка и установка докера (последней версии).
 
-8.Эта команда изменяет права доступа к файлу `docker-compose`, чтобы сделать его исполняемым.
+![image](https://github.com/user-attachments/assets/dca434e8-2d58-4bcc-b18d-e2ddffc6d0a5)
 
-![image](https://github.com/user-attachments/assets/19db8dab-837d-48c0-8c31-826d66cd45a1)
+9. `sudo chmod +x /usr/bin/docker-compose` с помощью данной команды докер становится исполняемым.
 
-9.`docker --version` команда позволяющая узнать версию docker-compose
+![image](https://github.com/user-attachments/assets/eeacff25-d5c9-425a-8c1a-c7763a02227c)
 
-![image](https://github.com/user-attachments/assets/d9c574f1-117d-4cca-a50d-ef206071425a)
+10. `git clone https://github.com/skl256/grafana_stack_for_docker.git` клонируется репозиторий git.
 
-10.Эта команда использует утилиту git для клонирования (копирования) удаленного репозитория на ваш локальный компьютер.
+![image](https://github.com/user-attachments/assets/36369452-5ad6-428f-8f86-86470812e6fc)
 
-![image](https://github.com/user-attachments/assets/3765c2df-9c3e-4f31-aaa1-9926bc9a9756)
+11. `cd grafana_stack_for_docker`  смены текущей директории на указанную директорию.
 
-11.Эта команда изменяет текущую рабочую директорию в терминале на директорию grafana_stack_for_docker.
+![image](https://github.com/user-attachments/assets/f18d4798-a9af-4c9b-a24f-34f106f71b8b)
 
-![image](https://github.com/user-attachments/assets/51b88fe8-db5d-470d-a1db-59c1c658e891)
+12. `sudo docker compose up -d` команда создает и запускает контейнеры в фоновом режиме.
 
-12.Эта команда создает директорию `/mnt/common_volume/swarm/grafana/config` с использованием прав суперпользователя <b>root</b>.
+![image](https://github.com/user-attachments/assets/bf58ab35-059b-44aa-85c0-53a31ef32d30)
 
-![image](https://github.com/user-attachments/assets/a2a41086-d0da-487f-9ef7-42b35d8f2bba)
+13. `sudo docker compose stop` остановка контейнеров без удаления. `sudo docker compose down` остановка и удаления контейнеров.
 
-13.Эта команда создает несколько вложенных директорий в указанном пути с использованием прав суперпользователя <b>root</b>.
+![image](https://github.com/user-attachments/assets/abeb2401-21d1-4543-91e1-c585f19b2b4d)
 
-![image](https://github.com/user-attachments/assets/b5614536-4d78-4151-bdc4-359b5c74cbdb)
+14. `sudo docker compose ps` мониториг контейнеров.
 
-14.Эта команда рекурсивно изменяет владельца и группу для указанных директорий и всех их содержимых файлов и поддиректорий. Владельцем и группой становятся текущий пользователь и его основная группа.
+![image](https://github.com/user-attachments/assets/6b716e63-69a1-41be-ab77-d0c3ed72db71)
 
-![image](https://github.com/user-attachments/assets/cadc9df7-1535-4693-a148-7489a4493652)
+15. `sudo vi docker-compose.yaml` открывает docker-compose.yaml в текстовом редакторе.
 
-15.Эта команда создаёт пустой файл grafana.ini в указанной директории, если его там нет, или обновляет время последнего доступа и изменения, если файл уже существует.
+![image](https://github.com/user-attachments/assets/6689db1d-768e-4c7b-be2e-f909fc94331a)
 
-![image](https://github.com/user-attachments/assets/10edca70-2c41-4bc5-9239-271e038d1235)
+16. `cd /mnt/common_volume/swarm/grafana/config/` изменение текущей рабочей директории в указанный путь в файловой системе. исправляем targets на exporter:9100.
 
-16.Эта команда копирует все файлы и директории из каталога `config/` в каталог `/mnt/common_volume/swarm/grafana/config/`. Если файлы с такими же именами уже существуют в целевом каталоге, они будут перезаписаны.
+![image](https://github.com/user-attachments/assets/f33a844f-483b-4131-b2d6-d4ba96bc4ac7)
 
-![image](https://github.com/user-attachments/assets/9df2d390-b56f-464d-81b5-eb25920e85fc)
+#**GRAFANA**
 
-17.`mv grafana.yaml docker-compose.yaml` эта команда переименовывает файл `grafana.yaml` в `docker-compose.yaml`, что бы не потерять этот файл проверяем с помощью команды <b>ls</b>
+1. `localhost:3000/login` вход в графану.
 
-![image](https://github.com/user-attachments/assets/07351c31-464e-4da0-8d13-9eb7817fc36c)
+![image](https://github.com/user-attachments/assets/18b3e86a-f8bd-495d-88d3-aa8343e30196)
 
-18.`sudo docker compose up -d` Эта команда используется для запуска и управления контейнерами Docker с помощью Docker Compose
+2. просмотр главного экрана графаны.
 
-![image](https://github.com/user-attachments/assets/567e247e-760f-46de-8203-83de860deaa4)
-![image](https://github.com/user-attachments/assets/9869ce1d-da35-49d5-9263-1f4097746796)
+![image](https://github.com/user-attachments/assets/ee5d3237-14ae-421c-bae1-d2c643ac33bb)
+
+3. создание дашборда с визуализацией.
+
+![image](https://github.com/user-attachments/assets/c2bac13a-8644-4ce0-9943-cd774029e6a3) ![image](https://github.com/user-attachments/assets/8bd08223-e171-469a-8f64-bcc8475e9ac3)
+
+4. `prometheus`
+
+![image](https://github.com/user-attachments/assets/de553c40-98f4-46d1-ab0d-4b02d62f6218)
+
+5. подключение `prometheus:9090`.
+
+![image](https://github.com/user-attachments/assets/660a2743-4eb7-4f9b-b170-ad1f590b9a6c)
+
+6. успешное сохранение.
+
+![image](https://github.com/user-attachments/assets/2ea6ff2f-6b16-4f41-b4df-3394ded024e3)
+
+7. импорт дашборда 1860 и prometheus.
+
+![image](https://github.com/user-attachments/assets/4e56cc30-7e30-409a-8e78-c542feb6585e) ![image](https://github.com/user-attachments/assets/b85b0c87-2384-4585-90c3-b456ef508ee8)
+
+8. рабочий мониторинг процессов.
+
+![image](https://github.com/user-attachments/assets/6788bf4a-cd5a-460b-905a-bc8b7e1ba8d7)
+
+
+
+
+
