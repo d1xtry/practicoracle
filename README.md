@@ -8,6 +8,7 @@
 ![image](https://github.com/user-attachments/assets/3ae11e20-485c-4aa3-bd3b-ebe5407ee6e3)
 
 2.Скачиваем пакет curl, с помощью команды `sudo yum install curl`.Данная утилита curl в Linux предназначена для передачи данных с помощью различных сетевых протоколов.
+
 ![image](https://github.com/user-attachments/assets/4a9ef6c4-ce94-413b-a24c-369196de0e93)
 
 3. Далее идет установка docker с помощью `sudo wget -P /etc/yum.repos.d/`
