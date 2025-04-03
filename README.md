@@ -104,5 +104,45 @@
 
 
 
+Victoria Metrics
+
+
+Запускаю докер с викторией и графаной
+
+![image](https://github.com/user-attachments/assets/b629f28a-1eff-4618-b43a-0d4e41267550)
+
+Создаю новое соединение прометиуса с таким урлом:
+
+![image](https://github.com/user-attachments/assets/8bdf14a2-dc10-420d-a515-edee6e011ed6)
+ 
+Выбираю code и вставляю параметр запроса
+
+![image](https://github.com/user-attachments/assets/3e952bbc-d7bf-4328-975a-50500c9130cc)
+
+
+ 
+Прописываю команды в терминал
+
+![image](https://github.com/user-attachments/assets/b75e30b7-0d96-430e-907f-296f64e13fd8)
+ 
+`echo -e "# TYPE OILCOINT_metric1 gauge\nOILCOINT_metric1 0" | curl --data-binary @- http://localhost:8428/api/v1/import/prometheus `
+
+Она формирует и отправляет метрику OILCOINT_metric1 (с типом gauge и значением 0) на локальный сервер Prometheus через POST-запрос.
+
+`curl -G 'http://localhost:8428/api/v1/query' --data-urlencode 'query=OILCOINT_metric1'`
+
+Она запрашивает текущее значение метрики OILCOINT_metric1 с помощью GET-запроса к API Prometheus.
+
+Создаю дэшборд в графане и вставляю OILCOINT_metric1
+
+![image](https://github.com/user-attachments/assets/876f9faa-3b76-4a4e-8184-f339600ca201)
+
+ 
+И в виктории метрикс
+ 
+![image](https://github.com/user-attachments/assets/d364495b-25de-4084-a702-ae9de602797e)
+
+
+
 
 
